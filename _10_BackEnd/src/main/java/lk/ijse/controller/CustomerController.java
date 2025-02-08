@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/customer")
+@CrossOrigin(origins = "http://localhost:63342")
 public class CustomerController {
 
     List<CustomerDTO> customers = new ArrayList<>();
@@ -15,6 +16,7 @@ public class CustomerController {
     @PostMapping("save")
     public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO){
         customers.add(customerDTO);
+        System.out.println("Save successfull ");
         return customerDTO;
     }
 
@@ -28,23 +30,25 @@ public class CustomerController {
 
             }
         }
+        System.out.println("Updated successfull ");
         return customerDTO;
     }
 
     @GetMapping("getall")
     public List<CustomerDTO> getAllCustomer(){
+        System.out.println("GetAll successfull ");
         return customers;
     }
 
-    @DeleteMapping(path = "delete/{id}")
-    public void deleteCustomer(@PathVariable(value = "id" ) String id){
-        for (int i = 0; i<customers.size(); i++){
-            CustomerDTO existingCustomer = customers.get(i);
-            if (existingCustomer.getId().equals(id)){
-                customers.remove(i);
-                break;
-            }
-        }
-        System.out.println("Delete successfull "+id);
+    @DeleteMapping(path = "delete", params = "id")
+    public boolean deleteCustomer(@RequestParam(value = "id" ) String id){
+       for(CustomerDTO customer : customers){
+           if(customer.getId().equals(id)){
+               return customers.remove(customer);
+           }
+       }
+       System.out.println("Delete successfull "+id);
+       return false;
+
     }
 }
