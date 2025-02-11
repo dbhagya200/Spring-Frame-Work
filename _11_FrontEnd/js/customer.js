@@ -123,6 +123,7 @@ $(document).ready(function () {
     $('#address').val("")
   })
 
-
+  $('#btn_getAll').click()
 });
+
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/customer")
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin
 public class CustomerController {
 
     List<CustomerDTO> customers = new ArrayList<>();
