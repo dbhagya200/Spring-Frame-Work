@@ -12,12 +12,27 @@
         <module name="_07_Spring_Environment" />
         <module name="_06_Runtime_Value_Injection" />
         <module name="_10_BackEnd" />
+        <module name="_12_Spring_Data_JPA" />
         <module name="_01_Spring_Core" />
         <module name="_09_Rest_Controller" />
         <module name="_05_Configuration" />
         <module name="_02-SpringBean-LIfe-Circle" />
         <module name="_04_FullMode_Vs_LightMode" />
       </profile>
+      <profile name="Annotation profile for _13_Spring_Boot" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="_13_Spring_Boot" />
+      </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="_13_Spring_Boot" options="-parameters" />
+    </option>
   </component>
 </project>

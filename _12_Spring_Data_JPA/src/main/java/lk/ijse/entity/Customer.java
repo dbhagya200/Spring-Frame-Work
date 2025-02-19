@@ -1,5 +1,7 @@
-package lk.ijse.dto;
+package lk.ijse.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,12 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CustomerDTO {
-    private String id;
+@Entity
+public class Customer {
+
+    @Id
+    private int id;
     private String name;
-    private int age;
     private String address;
-
-
-
 }
