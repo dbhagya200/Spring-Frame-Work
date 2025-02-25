@@ -1,10 +1,15 @@
 package lk.ijse._14_spring_boot2.dto;
 
+import lk.ijse._14_spring_boot2.entity.OrderDetails;
+
+import java.util.List;
+
 public class ItemDTO {
     private String code;
     private String name;
     public int quantity;
     public double price;
+
 
     public ItemDTO() {
     }

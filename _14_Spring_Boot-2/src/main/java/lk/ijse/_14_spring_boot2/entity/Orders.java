@@ -8,24 +8,20 @@ import java.util.List;
 @Entity
 public class Orders {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
     private String orderId;
     private Date orderDate;
     private Double total;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
 
     public Orders() {
     }
 
-    public Orders(String id, String orderId, Date orderDate, Double total, Customer customer, List<OrderDetails> orderDetails) {
-        this.id = id;
+    public Orders( String orderId, Date orderDate, Double total, Customer customer, List<OrderDetails> orderDetails) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.total = total;
@@ -33,13 +29,7 @@ public class Orders {
         this.orderDetails = orderDetails;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getOrderId() {
         return orderId;
@@ -84,7 +74,6 @@ public class Orders {
     @Override
     public String toString() {
         return "Orders{" +
-                "id='" + id + '\'' +
                 ", orderId='" + orderId + '\'' +
                 ", orderDate=" + orderDate +
                 ", total=" + total +

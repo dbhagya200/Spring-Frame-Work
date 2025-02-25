@@ -38,7 +38,7 @@ $("#purchase").click( (e) =>{
 
 
     $.ajax({
-        url:"http://localhost:8080/api/v1/item/save",
+        url:"http://localhost:8080/api/v1/order/save",
         method:'POST',
         data:{
             orderId:orderId,

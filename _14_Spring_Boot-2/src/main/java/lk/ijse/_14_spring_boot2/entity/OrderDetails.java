@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 public class OrderDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderDetailsId;
     private Integer quantity;
 
@@ -14,11 +13,9 @@ public class OrderDetails {
     private Double total;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
     private Orders orders;
 
     @ManyToOne
-    @JoinColumn(name = "item_id", nullable = false)
     private Item item;
 
     public OrderDetails() {
