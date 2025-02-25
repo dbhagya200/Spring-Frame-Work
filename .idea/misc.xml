@@ -16,7 +16,16 @@
         <option value="$PROJECT_DIR$/_10_BackEnd/pom.xml" />
         <option value="$PROJECT_DIR$/_12_Spring_Data_JPA/pom.xml" />
         <option value="$PROJECT_DIR$/_13_Spring_Boot/pom.xml" />
+        <option value="$PROJECT_DIR$/_14_FrontEnd_use_SpringBoot/pom.xml" />
+        <option value="$PROJECT_DIR$/_14_SpringBoot_Model_Mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/_14_Spring_Boot-2/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/_14_FrontEnd_use_SpringBoot/pom.xml" />
+        <option value="$PROJECT_DIR$/_14_SpringBoot_Model_Mapper/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17 (3)" project-jdk-type="JavaSDK">

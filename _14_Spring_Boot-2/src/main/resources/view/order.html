@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="css/customer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+</head>
+<body class="w-100 d-flex flex-column justify-content-center align-items-center">
+<header class="header"  >
+    <a class="navbar-brand homeNav text-light" href=""><img src="/icon.png" alt=""> Spring FrameWork</a>
+    <div>
+
+        <li><a href="index.html"> Dashboard</a></li>
+        <li><a href="customer.html"> Customers</a></li>
+        <li><a href="item.html"> Items</a></li>
+        <li><a href="order.html"> Orders</a></li>
+    </div>
+</header>
+
+<div class="container mt-5">
+    <div class="container justify-content-between d-flex">
+        <h4 class="mt-5">PLace Order</h4>
+
+    </div>
+
+    <div class="row gx-3 order-section">
+        <div class="col-lg-8 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Order ID" aria-label="Order ID" id="orderId">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Order Date" aria-label="Order Date" id="orderDate">
+                        </div>
+                    </div>
+
+
+                    <div class="row g-3 mb-3">
+                        <select class="form-select form-select-sm" aria-label="Small select example" id="cusId" >
+                            <option selected>Select Customer Id</option>
+                        </select>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="customer Name" aria-label="Item Name" id="cusName">
+                        </div>
+
+
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <!--  <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Item Code" aria-label="Item Code" id="itCode">
+                          </div>-->
+                        <select class="form-select form-select-sm" aria-label="Small select example" id="itCode" >
+                            <option selected>Select item code</option>
+                        </select>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Item Name" aria-label="Item Name" id="itName">
+                        </div>
+                    </div>
+
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Unit Price" aria-label="Unit Price" id="uPrice">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Qty On Hand" aria-label="Qty On Hand" id="qtyOnHand1">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Qty" aria-label="Qty" id="qty">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-3">
+                        <button type="button" class="btn btn-primary" id="addToCart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Total" aria-label="Total" id="netTotal">
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-success" id="purchase">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="table-responsive" id="table place">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col" class="bg-success text-light">Item Code</th>
+                <th scope="col" class="bg-success text-light">Description</th>
+                <th scope="col" class="bg-success text-light">Price</th>
+                <th scope="col" class="bg-success text-light">Qty</th>
+                <th scope="col" class="bg-success text-light">Total</th>
+            </tr>
+            </thead>
+            <tbody id="orderTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<!--<script src="js/order.js"></script>-->
+</body>
+</html>

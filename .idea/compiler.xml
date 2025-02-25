@@ -19,20 +19,28 @@
         <module name="_02-SpringBean-LIfe-Circle" />
         <module name="_04_FullMode_Vs_LightMode" />
       </profile>
-      <profile name="Annotation profile for _13_Spring_Boot" enabled="true">
+      <profile name="Annotation profile for _14_Spring_Boot-2" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="_14_Spring_Boot-2" />
         <module name="_13_Spring_Boot" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="_14_FrontEnd_use_SpringBoot" target="17" />
+      <module name="_14_SpringBoot_Model_Mapper" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="_13_Spring_Boot" options="-parameters" />
+      <module name="_14_FrontEnd_use_SpringBoot" options="-parameters" />
+      <module name="_14_SpringBoot_Model_Mapper" options="-parameters" />
+      <module name="_14_Spring_Boot-2" options="-parameters" />
     </option>
   </component>
 </project>

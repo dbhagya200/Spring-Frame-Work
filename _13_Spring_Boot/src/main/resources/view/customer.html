@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Form</title>
+  <link rel="stylesheet" href="css/customer.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+
+</head>
+<body class="w-100 d-flex flex-column justify-content-center align-items-center">
+<header class="header"  >
+  <a class="navbar-brand homeNav text-light" href=""><img src="/icon.png" alt=""> Spring FrameWork</a>
+  <div>
+
+    <li><a href="index.html"> Dashboard</a></li>
+    <li><a href="customer.html"> Customers</a></li>
+    <li><a href="item.html"> Items</a></li>
+    <li><a href="order.html"> Orders</a></li>
+  </div>
+</header>
+<div class="container m-2 w-50 h-75 mt-5 pt-2  ">
+  <!-- Add Customer Modal -->
+  <form id="addCustomerForm">
+    <div class="mb-3 text-center">
+      <h1 class="m-3">Welcome to Customer Management!</h1>
+    </div>
+    <div class="mb-3">
+      <label for="id" class="form-label">Customer Id</label>
+      <input type="text" class="form-control" id="id" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input type="text" class="form-control" id="address" required>
+    </div>
+    <button id="btn_save" type="button" class="btn btn-success" >Add</button>
+    <button id="btn_clear" type="button" class="btn btn-secondary" >Clear</button>
+    <button id="btn_update" type="button" class="btn btn-warning">Update</button>
+    <button id="btn_delete" type="button" class="btn btn-danger">Delete</button>
+    <button id="btn_getAll" type="button" class="btn btn-info">Get All</button>
+  </form>
+</div>
+  <!-- Customer Table -->
+  <table class="table table-bordered table-striped mt-3 w-75">
+    <thead>
+    <tr>
+      <td class="bg-success text-light">ID</td>
+      <td class="bg-success text-light">Name</td>
+      <td class="bg-success text-light">Address</td>
+    </tr>
+    </thead>
+    <tbody id="customer_table_body">
+    </tbody>
+  </table>
+
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>
