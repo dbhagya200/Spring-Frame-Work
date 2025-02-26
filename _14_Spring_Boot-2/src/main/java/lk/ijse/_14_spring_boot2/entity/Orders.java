@@ -1,6 +1,7 @@
 package lk.ijse._14_spring_boot2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 import java.util.List;
@@ -9,8 +10,10 @@ import java.util.List;
 public class Orders {
     @Id
     private String orderId;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
-    private Double total;
+    private double total;
 
     @ManyToOne
     private Customer customer;

@@ -114,11 +114,11 @@ function clearfield(){
 
 const selectCustomerIds =() =>{
     $.ajax({
-        url: "http://localhost:8080/Application1_Web_exploded/customer",
+        url: "http://localhost:8080/api/v1/customer/get",
         method:"GET",
         success: function (response) {
             let data =response;
-            $('#cusId').empty();
+            $("#cusId").empty();
             $('#cusId').append(
                 `<option value="0">Select Customer</option>`
             );

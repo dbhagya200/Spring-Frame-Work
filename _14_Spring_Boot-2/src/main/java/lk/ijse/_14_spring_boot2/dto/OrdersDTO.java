@@ -6,20 +6,20 @@ import java.util.List;
 public class OrdersDTO {
     private String orderId;
     private Date orderDate;
-    private Double total;
+    private double total;
     private String customerId;
     private List<OrderDetailsDTO> orderDetails;
 
     public OrdersDTO() {
     }
 
-    public OrdersDTO( String orderId, Date orderDate, Double total, List<OrderDetailsDTO> orderDetails) {
+    public OrdersDTO(String orderId, Date orderDate, Double total, String customerId, List<OrderDetailsDTO> orderDetails) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.total = total;
+        this.customerId = customerId;
         this.orderDetails = orderDetails;
     }
-
 
     public String getOrderId() {
         return orderId;
@@ -45,6 +45,14 @@ public class OrdersDTO {
         this.total = total;
     }
 
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
     public List<OrderDetailsDTO> getOrderDetails() {
         return orderDetails;
     }
@@ -56,9 +64,10 @@ public class OrdersDTO {
     @Override
     public String toString() {
         return "OrdersDTO{" +
-                ", orderId='" + orderId + '\'' +
+                "orderId='" + orderId + '\'' +
                 ", orderDate=" + orderDate +
                 ", total=" + total +
+                ", customerId='" + customerId + '\'' +
                 ", orderDetails=" + orderDetails +
                 '}';
     }

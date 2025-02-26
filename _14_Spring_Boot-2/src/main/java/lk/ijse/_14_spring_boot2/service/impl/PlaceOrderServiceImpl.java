@@ -1,7 +1,9 @@
 package lk.ijse._14_spring_boot2.service.impl;
 
+import jakarta.transaction.Transactional;
 import lk.ijse._14_spring_boot2.dto.CustomerDTO;
 import lk.ijse._14_spring_boot2.dto.OrderDetailsDTO;
+import lk.ijse._14_spring_boot2.dto.OrdersDTO;
 import lk.ijse._14_spring_boot2.entity.Customer;
 import lk.ijse._14_spring_boot2.entity.Item;
 import lk.ijse._14_spring_boot2.entity.OrderDetails;
@@ -17,15 +19,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlaceOrderServiceImpl implements PlaceOrderService {
 
     @Autowired
     private OrdersRepo ordersRepo;
-
-    @Autowired
-    private CustomerRepo customerRepo;
 
     @Autowired
     private ItemRepo itemRepo;
@@ -37,7 +37,25 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 
 
     @Override
-    public void save(CustomerDTO customerDTO, OrderDetailsDTO orderDetailsDTO) {
+    @Transactional
+    public void save(OrdersDTO ordersDTO) {
+        Orders order = modelMapper.map(ordersDTO, Orders.class);
+        ordersRepo.save(order);
+
+        for (OrderDetailsDTO detailDTO : ordersDTO.getOrderDetails()) {
+            OrderDetails orderDetail = modelMapper.map(detailDTO, OrderDetails.class);
+            orderDetail.setOrders(order);
+            orderDetailRepo.save(orderDetail);
+
+            Optional<Item> optionalItem = itemRepo.findById(detailDTO.getItemCode());
+            if (optionalItem.isPresent()) {
+                Item item = optionalItem.get();
+                item.setQuantity(item.getQuantity() - detailDTO.getQuantity());
+                itemRepo.save(item);
+            } else {
+                throw new RuntimeException("Item not found: " + detailDTO.getItemCode());
+            }
+        }
 
 //        orderDetailRepo.save(modelMapper.map(orderDetailsDTO,OrderDetails.class));
 

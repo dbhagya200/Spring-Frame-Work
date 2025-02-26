@@ -5,26 +5,24 @@ import jakarta.persistence.*;
 @Entity
 public class OrderDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderDetailsId;
-    private Integer quantity;
-
-    private Double unitPrice;
-
-    private Double total;
+    private int quantity;
+    private double total;
 
     @ManyToOne
     private Orders orders;
 
     @ManyToOne
+    @JoinColumn(name = "itemCode", nullable = false)
     private Item item;
 
     public OrderDetails() {
     }
 
-    public OrderDetails(int orderDetailsId, Integer quantity, Double unitPrice, Double total, Orders orders, Item item) {
+    public OrderDetails(int orderDetailsId, int quantity, double total, Orders orders, Item item) {
         this.orderDetailsId = orderDetailsId;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
         this.total = total;
         this.orders = orders;
         this.item = item;
@@ -38,27 +36,19 @@ public class OrderDetails {
         this.orderDetailsId = orderDetailsId;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public Double getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
@@ -83,7 +73,6 @@ public class OrderDetails {
         return "OrderDetails{" +
                 "orderDetailsId=" + orderDetailsId +
                 ", quantity=" + quantity +
-                ", unitPrice=" + unitPrice +
                 ", total=" + total +
                 ", orders=" + orders +
                 ", item=" + item +

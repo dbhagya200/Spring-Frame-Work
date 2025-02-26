@@ -3,38 +3,37 @@ package lk.ijse._14_spring_boot2.dto;
 import lk.ijse._14_spring_boot2.entity.Item;
 
 public class OrderDetailsDTO {
-    private int orderDetailsId;
-    private Integer quantity;
+    private String itemCode;
+    private int quantity;
+    private double unitPrice;
 
-    private Double unitPrice;
-
-    private Double total;
-    private String itemId;
+    private double total;
+    private String orderId;
 
     public OrderDetailsDTO() {
     }
 
-    public OrderDetailsDTO(int orderDetailsId, Integer quantity, Double unitPrice, Double total, String itemId) {
-        this.orderDetailsId = orderDetailsId;
+    public OrderDetailsDTO(String itemCode, int quantity, Double unitPrice, double total, String orderId) {
+        this.itemCode = itemCode;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.total = total;
-        this.itemId = itemId;
+        this.orderId = orderId;
     }
 
-    public int getOrderDetailsId() {
-        return orderDetailsId;
+    public String getItemCode() {
+        return itemCode;
     }
 
-    public void setOrderDetailsId(int orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -46,30 +45,30 @@ public class OrderDetailsDTO {
         this.unitPrice = unitPrice;
     }
 
-    public Double getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
-    public String getItemId() {
-        return itemId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     @Override
     public String toString() {
         return "OrderDetailsDTO{" +
-                "orderDetailsId=" + orderDetailsId +
+                "itemCode='" + itemCode + '\'' +
                 ", quantity=" + quantity +
                 ", unitPrice=" + unitPrice +
                 ", total=" + total +
-                ", itemId='" + itemId + '\'' +
+                ", orderId='" + orderId + '\'' +
                 '}';
     }
 }
